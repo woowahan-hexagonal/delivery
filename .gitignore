@@ -39,5 +39,4 @@ out/
 .idea/
 
 ### logging
-logback-spring.xml
 log.txt
