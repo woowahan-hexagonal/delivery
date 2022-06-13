@@ -1,4 +1,4 @@
-package com.woowahanstudy.schoolvery.board.application.service.dto.request;
+package com.woowahanstudy.schoolvery.board.application.port.in.dto;
 
 import com.woowahanstudy.schoolvery.board.domain.BoardCategory;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,7 @@ import javax.persistence.Enumerated;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class AddBoardDto {
+public class RegisterBoardRequestDto {
 
     private String title;
 

@@ -1,4 +1,4 @@
-package com.woowahanstudy.schoolvery.chat.persistence;
+package com.woowahanstudy.schoolvery.chat.adapter.out.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

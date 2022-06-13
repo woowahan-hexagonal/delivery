@@ -1,9 +1,9 @@
-package com.woowahanstudy.schoolvery.board.persistence;
+package com.woowahanstudy.schoolvery.board.adapter.out.persistence;
 
 import com.woowahanstudy.schoolvery.common.BaseEntity;
 import com.woowahanstudy.schoolvery.board.domain.BoardCategory;
 import com.woowahanstudy.schoolvery.board.domain.BoardStatus;
-import com.woowahanstudy.schoolvery.chat.persistence.ChatRoomEntity;
+import com.woowahanstudy.schoolvery.chat.adapter.out.persistence.ChatRoomEntity;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;

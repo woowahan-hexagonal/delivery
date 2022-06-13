@@ -1,6 +1,6 @@
-package com.woowahanstudy.schoolvery.chat.persistence;
+package com.woowahanstudy.schoolvery.chat.adapter.out.persistence;
 
-import com.woowahanstudy.schoolvery.board.persistence.BoardEntity;
+import com.woowahanstudy.schoolvery.board.adapter.out.persistence.BoardEntity;
 import lombok.*;
 
 import javax.persistence.*;
