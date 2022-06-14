@@ -5,9 +5,9 @@ import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 @Mapper
-public interface ChatRoomToCharRoomEntityConverter {
-    ChatRoomToCharRoomEntityConverter INSTANCE = Mappers.getMapper(
-        ChatRoomToCharRoomEntityConverter.class);
+public interface ChatRoomConverter {
+    ChatRoomConverter INSTANCE = Mappers.getMapper(
+        ChatRoomConverter.class);
 
     ChatRoomEntity chatRoomToChatRoomEntity(final ChatRoom chatRoom);
 }
