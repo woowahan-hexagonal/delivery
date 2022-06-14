@@ -1,6 +1,5 @@
 package com.woowahanstudy.schoolvery.chat.application.port.out;
 
-import com.woowahanstudy.schoolvery.chat.adapter.out.persistence.ChatRoomEntity;
 import com.woowahanstudy.schoolvery.chat.domain.ChatRoom;
 
 public interface RegisterChatRoomPort {

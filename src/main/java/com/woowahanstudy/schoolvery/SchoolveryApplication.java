@@ -8,8 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class SchoolveryApplication {
 
 	public static void main(String[] args) {
-
 		SpringApplication.run(SchoolveryApplication.class, args);
 	}
-
 }

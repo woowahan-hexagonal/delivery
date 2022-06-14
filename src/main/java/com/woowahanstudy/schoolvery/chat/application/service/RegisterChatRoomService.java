@@ -5,7 +5,7 @@ import com.woowahanstudy.schoolvery.chat.application.port.out.RegisterChatRoomPo
 import com.woowahanstudy.schoolvery.chat.application.port.in.converter.RegisterChatRoomRequestDtoConverter;
 import com.woowahanstudy.schoolvery.chat.application.port.in.dto.RegisterChatRoomRequestDto;
 import com.woowahanstudy.schoolvery.chat.domain.ChatRoom;
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -19,11 +19,11 @@ public class RegisterChatRoomService implements RegisterChatRoomServicePort {
     private final RegisterChatRoomPort registerChatRoomPort;
 
     @Override
-    public void addChatRoom(RegisterChatRoomRequestDto registerChatRoomRequestDto) {
+    public Long addChatRoom(RegisterChatRoomRequestDto registerChatRoomRequestDto) {
 
-        final ChatRoom chatRoom = RegisterChatRoomRequestDtoConverter.INSTANCE.registerChatRoomRequestDtoToChatRoom(
-            registerChatRoomRequestDto);
-        registerChatRoomPort.add(chatRoom);
-
+        final ChatRoom chatRoom = RegisterChatRoomRequestDtoConverter
+            .INSTANCE.registerChatRoomRequestDtoToChatRoom(registerChatRoomRequestDto);
+        Long chatRoomId = registerChatRoomPort.add(chatRoom);
+        return chatRoomId;
     }
 }

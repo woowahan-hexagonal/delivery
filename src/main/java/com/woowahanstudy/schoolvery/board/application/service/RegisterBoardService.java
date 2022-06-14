@@ -5,22 +5,19 @@ import com.woowahanstudy.schoolvery.board.application.port.in.converter.Register
 import com.woowahanstudy.schoolvery.board.application.port.out.RegisterBoardPort;
 import com.woowahanstudy.schoolvery.board.application.port.in.dto.RegisterBoardRequestDto;
 import com.woowahanstudy.schoolvery.board.domain.Board;
-//import com.woowahanstudy.schoolvery.board.domain.Board.BoardId;
 import com.woowahanstudy.schoolvery.chat.application.port.in.RegisterChatRoomServicePort;
 import com.woowahanstudy.schoolvery.chat.application.port.in.dto.RegisterChatRoomRequestDto;
-import com.woowahanstudy.schoolvery.chat.application.port.out.RegisterChatRoomPort;
-import com.woowahanstudy.schoolvery.chat.domain.ChatRoom;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 
 @Slf4j
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class RegisterBoardService implements RegisterBoardServicePort {
+
     private final RegisterBoardPort registerBoardPort;
     private final RegisterChatRoomServicePort registerChatRoomServicePort;
 
@@ -29,11 +26,11 @@ public class RegisterBoardService implements RegisterBoardServicePort {
 
         final Board board = RegisterBoardRequestDtoConverter.INSTANCE
             .registerBoardRequestDtoToBoard(registerBoardRequestDto);
+        final RegisterChatRoomRequestDto registerChatRoomRequestDto =
+            new RegisterChatRoomRequestDto();
 
-        registerBoardPort.add(board);
-        registerChatRoomServicePort.addChatRoom(RegisterChatRoomRequestDto.builder()
-            .board(board)
-            .build());
-
+        Long boardId = registerBoardPort.add(board);
+        registerChatRoomRequestDto.setBoardId(boardId);
+        registerChatRoomServicePort.addChatRoom(registerChatRoomRequestDto);
     }
 }

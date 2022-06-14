@@ -4,7 +4,5 @@ import com.woowahanstudy.schoolvery.chat.application.port.in.dto.RegisterChatRoo
 
 public interface RegisterChatRoomServicePort {
 
-    void addChatRoom(RegisterChatRoomRequestDto registerChatRoomRequestDto);
-
+    Long addChatRoom(RegisterChatRoomRequestDto registerChatRoomRequestDto);
 }
-

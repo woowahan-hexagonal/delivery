@@ -7,6 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface RegisterChatRoomRequestDtoConverter {
+
     RegisterChatRoomRequestDtoConverter INSTANCE =
         Mappers.getMapper(RegisterChatRoomRequestDtoConverter.class);
 

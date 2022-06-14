@@ -8,6 +8,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface RegisterBoardRequestDtoConverter {
+
     RegisterBoardRequestDtoConverter INSTANCE =
         Mappers.getMapper(RegisterBoardRequestDtoConverter.class);
 

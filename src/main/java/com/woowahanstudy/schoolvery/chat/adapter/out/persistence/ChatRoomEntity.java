@@ -1,6 +1,8 @@
 package com.woowahanstudy.schoolvery.chat.adapter.out.persistence;
 
 import com.woowahanstudy.schoolvery.board.adapter.out.persistence.BoardEntity;
+import com.woowahanstudy.schoolvery.common.BaseEntity;
+import java.util.Optional;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,14 +13,14 @@ import javax.persistence.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChatRoomEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class ChatRoomEntity extends BaseEntity {
 
     @Setter
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "board_id", referencedColumnName = "id")
     private BoardEntity board;
+
+    public void setBoardEntity(BoardEntity boardEntity) {
+        this.board = boardEntity;
+    }
 }

@@ -5,7 +5,6 @@ import com.woowahanstudy.schoolvery.board.domain.BoardCategory;
 import com.woowahanstudy.schoolvery.board.domain.BoardStatus;
 import com.woowahanstudy.schoolvery.chat.adapter.out.persistence.ChatRoomEntity;
 import lombok.*;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.*;
@@ -19,20 +18,20 @@ import javax.persistence.*;
 @DynamicInsert
 public class BoardEntity extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
     @Column
     private String title;
 
     @Enumerated(EnumType.STRING)
     private BoardCategory boardCategory;
 
+    @Builder.Default
     @Enumerated(EnumType.STRING)
-    @ColumnDefault("'OPEN'")
-    private BoardStatus boardStatus;
+    private BoardStatus boardStatus = BoardStatus.OPEN;
 
     @OneToOne(mappedBy = "board")
-    private ChatRoomEntity chatroom;
+    private ChatRoomEntity chatRoom;
+
+    public void setChatRoom(ChatRoomEntity chatRoomEntity) {
+        this.chatRoom = chatRoomEntity;
+    }
 }

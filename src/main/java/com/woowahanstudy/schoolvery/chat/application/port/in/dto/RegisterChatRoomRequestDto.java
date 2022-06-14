@@ -13,7 +13,5 @@ import lombok.NoArgsConstructor;
 @Data
 public class RegisterChatRoomRequestDto {
 
-    private Board board;
-
+    private Long boardId;
 }
-

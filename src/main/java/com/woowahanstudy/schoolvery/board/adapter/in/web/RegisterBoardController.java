@@ -21,7 +21,6 @@ public class RegisterBoardController {
     public ResponseEntity<Void> addBoard(@RequestBody @Valid RegisterBoardRequestDto registerBoardRequestDto) {
 
         registerBoardServicePort.addBoard(registerBoardRequestDto);
-
         return ResponseEntity.status(HttpStatus.CREATED)
                 .build();
     }

@@ -5,5 +5,4 @@ import com.woowahanstudy.schoolvery.board.application.port.in.dto.RegisterBoardR
 public interface RegisterBoardServicePort {
 
     void addBoard(RegisterBoardRequestDto registerBoardRequestDto);
-
 }
