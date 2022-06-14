@@ -1,5 +1,6 @@
 package com.woowahanstudy.schoolvery.board.adapter.out.persistence;
 
+import com.woowahanstudy.schoolvery.board.application.port.out.LoadBoardPort;
 import com.woowahanstudy.schoolvery.board.application.port.out.RegisterBoardPort;
 import com.woowahanstudy.schoolvery.board.domain.Board;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,22 +10,23 @@ import org.springframework.stereotype.Repository;
 @RequiredArgsConstructor
 @Repository
 @Transactional(readOnly = true)
-public class BoardPersistenceAdapter implements RegisterBoardPort {
+public class BoardPersistenceAdapter implements RegisterBoardPort, LoadBoardPort {
 
     private final BoardJpaRepository boardJpaRepository;
 
+    @Override
     @Transactional
-    public BoardEntity findById(Long boardId) {
-        return boardJpaRepository.findById(boardId)
-            .orElseThrow(() -> new IllegalArgumentException("no such data"));
+    public Long add(final Board board) {
+
+        final BoardEntity boardEntity =
+            BoardConverter.INSTANCE.boardToBoardEntity(board);
+        return boardJpaRepository.save(boardEntity).getId();
     }
 
     @Override
     @Transactional
-    public Long add(Board board) {
-
-        final BoardEntity boardEntity =
-            BoardToBoardEntityConverter.INSTANCE.boardToBoardEntity(board);
-        return boardJpaRepository.save(boardEntity).getId();
+    public Board findById(final Long boardId) {
+        return BoardConverter.INSTANCE.boardEntityToBoard(boardJpaRepository.findById(boardId)
+            .orElseThrow(() -> new IllegalArgumentException("no such data")));
     }
 }

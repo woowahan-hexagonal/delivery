@@ -27,11 +27,4 @@ public class BoardEntity extends BaseEntity {
     @Builder.Default
     @Enumerated(EnumType.STRING)
     private BoardStatus boardStatus = BoardStatus.OPEN;
-
-    @OneToOne(mappedBy = "board")
-    private ChatRoomEntity chatRoom;
-
-    public void setChatRoom(ChatRoomEntity chatRoomEntity) {
-        this.chatRoom = chatRoomEntity;
-    }
 }
