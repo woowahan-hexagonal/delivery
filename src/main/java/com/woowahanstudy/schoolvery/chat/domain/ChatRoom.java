@@ -1,9 +1,17 @@
 package com.woowahanstudy.schoolvery.chat.domain;
 
-import com.woowahanstudy.schoolvery.board.persistence.BoardEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ChatRoom {
 
-    private BoardEntity board;
-
+    @Getter
+    @Setter
+    private Long boardId;
 }

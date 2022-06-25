@@ -1,17 +1,16 @@
-package com.woowahanstudy.schoolvery.board.domain;
+package com.woowahanstudy.schoolvery.board.application.port.in.dto;
 
+import com.woowahanstudy.schoolvery.board.domain.BoardCategory;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicInsert;
 
-@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@DynamicInsert
-public class Board {
+@Data
+public class RegisterBoardRequestDto {
 
     private Long id;
     private String title;
